@@ -1,20 +1,17 @@
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
-import { TextStyleVariantsMap } from '../../foundation/Text';
 
-const ButtonGhost = css`
-    color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
+import { TextStyleVariantsMap } from '../../foundation/Text';
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+
+const buttonGhost = css`
+    color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
     background: transparent;
 `;
 
-const ButtonDefault = css`
-    color: white;
-    background-color: ${function(props) {
-        return get(props.theme, `colors.${props.variant}.color`)
-    }};
-    color: ${function(props) {
-        return get(props.theme, `colors.${props.variant}.contrastText`)
-    }};
+const buttonDefault = css`
+    color: ${({ theme, variant  }) => get(theme, `colors.${variant}.contrastText`)};
+    background-color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
 `;
 
 export const Button = styled.button`
@@ -23,20 +20,20 @@ export const Button = styled.button`
     padding: 12px 26px;
     font-weight: bold;
     opacity: 1;
-    border-radius: 8px;  
-
-    ${TextStyleVariantsMap.smallestException}
-
-    ${function(props) {
-        if(props.ghost) {
-            return ButtonGhost;
-        }
-        return ButtonDefault;
-    }}
-    transition: opacity ${({ theme }) => theme.transition};
     border-radius: ${({ theme }) => theme.borderRadius};
+    ${TextStyleVariantsMap.smallestException}
+    ${({ ghost }) => ghost ? buttonGhost : buttonDefault}
+    transition: opacity ${({ theme }) => theme.transition};
     &:hover,
     &:focus {
         opacity: .5;
     }
+    ${breakpointsMedia({
+        xs: css`
+            ${TextStyleVariantsMap.smallestException}
+        `,
+        md: css`
+            ${TextStyleVariantsMap.paragraph1}
+        `,
+    })}
 `;

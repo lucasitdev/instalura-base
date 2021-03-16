@@ -1,49 +1,57 @@
-import { typographyVariants } from './typhografyVariants';
+import { typographyVariants } from './typographyVariants';
 
-export const colors = {
-  background: {
-    light: {
-      color: '#FFFFFF',
+const colors = {
+    background: {
+        light: {
+            color: '#FFFFFF',
+        },
+        main: {
+            color: '#F2F2F2',
+        },
     },
-    main: {
-      color: '#F2F2F2',
+    borders: {
+        main: {
+            color: '#F1F1F1',
+        },
     },
-  },
-  borders: {
-    main: {
-      color: '#F1F1F1',
+    primary: {
+        main: {
+            color: '#D7385E',
+            contrastText: '#FFFFFF',
+        },
     },
-  },
-  primary: {
-    main: {
-      color: '#D7385E',
-      contrastText: '#fff',
+    secondary: {
+        main: {
+            color: '#FB7B6B',
+            contrastText: '#FFFFFF',
+        },
     },
-  },
-  secondary: {
-    main: {
-      color: '#FB7B6B',
-      contrastText: '#fff',
+    tertiary: {
+        main: {
+            color: '#070C0E',
+            contrastText: '#FFFFFF',
+        },
+        light: {
+            color: '#88989E',
+            contrastText: '#FFFFFF',
+        },
     },
-  },
-  tertiary: {
-    main: {
-      color: '#070C0E',
-      contrastText: '#fff',
+    modes: {
+        dark: {},
     },
-    light: {
-      color: '#88989E',
-      contrastText: '#fff',
-    },
-  },
-  modes: {
-    dark: {},
-  },
 };
+
 export default {
-  colors,
-  typographyVariants,
-  borderRadius: '8px',
-  transition: '200ms ease-in-out',
-  fontFamily: '\'Rubik\', sans-serif',
-}; 
+    colors,
+    borderRadius: '8px',
+    transition: '200ms ease-in-out',
+    fontFamily: '\'Rubik\', sans-serif',
+    typographyVariants,
+    breakpoints: {
+        xs: 0,
+        sm: 480,
+        md: 768,
+        lg: 992,
+        xl: 1200,
+    },
+}

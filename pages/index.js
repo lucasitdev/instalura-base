@@ -1,4 +1,6 @@
-import Menu from '../src/components/commons/Menu'
+import React from 'react';
+
+import Menu from '../src/components/commons/Menu';
 import Footer from '../src/components/commons/Footer';
 
 export default function Home() {
@@ -13,5 +15,5 @@ export default function Home() {
       <Menu />
       <Footer />
     </div>
-  )
+  );
 }
